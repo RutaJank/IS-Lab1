@@ -37,4 +37,8 @@ while absError != 0:
     absError = h.get_error(e)
     print(absError)
 
-
+#Iterate over whole dataset and check if classified correctly
+for i in range(len(t)):
+    vv = h.get_parameter_value(x1[i],w1,x2[i],w2,b)
+    y = h.get_output(vv)
+    print("Correct") if y == t[i] else print("Incorrect")
