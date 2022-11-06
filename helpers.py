@@ -27,3 +27,15 @@ def get_output(v):
     else:
         y = -1
     return y
+
+def get_feature_probability(yn, sigma, mu):
+    p = 1/(np.sqrt(2*np.pi*sigma))*(np.exp((-1*pow(yn-mu, 2))/(2*sigma)))
+    return round(p, 5)
+
+def get_evidence(p, y11, y12, y21, y22):
+    evidence = p*y11*y12+p*y21*y22
+    return evidence
+
+def get_posterior(p, y1, y2, evidence):
+    posterior = (p*y1*y2)/evidence
+    return posterior
