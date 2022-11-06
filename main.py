@@ -1,9 +1,17 @@
 import helpers as h
 import random as rnd
 
-x1 = [0.21835, 0.14115, 0.37022, 0.08838, 0.098166]
-x2 = [0.81884, 0.83535, 0.8111, 0.62068, 0.79092]
-t = [1, 1, 1, -1, -1]
+x1 = []
+x2 = []
+t = []
+
+with open('data.txt', 'r') as f:
+    for line in f.readlines():
+        color, roundness, type = line.strip().split(',')
+        x1.append(float(color))
+        x2.append(float(roundness))
+        t.append(int(type))
+
 p=0.1
 
 w1 = rnd.random()
@@ -28,4 +36,5 @@ while absError != 0:
         e[i] = t[i] - h.get_output(v[i])
     absError = h.get_error(e)
     print(absError)
+
 
