@@ -39,3 +39,15 @@ def get_evidence(p, y11, y12, y21, y22):
 def get_posterior(p, y1, y2, evidence):
     posterior = (p*y1*y2)/evidence
     return posterior
+
+def get_data():
+    x1 = []
+    x2 = []
+    t = []
+    with open('data.txt', 'r') as f:
+        for line in f.readlines():
+            color, roundness, type = line.strip().split(',')
+            x1.append(float(color))
+            x2.append(float(roundness))
+            t.append(int(type))
+    return x1, x2, t

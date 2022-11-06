@@ -1,16 +1,7 @@
 import helpers as h
 import random as rnd
 
-x1 = []
-x2 = []
-t = []
-
-with open('data.txt', 'r') as f:
-    for line in f.readlines():
-        color, roundness, type = line.strip().split(',')
-        x1.append(float(color))
-        x2.append(float(roundness))
-        t.append(int(type))
+x1, x2, t = h.get_data()
 
 p=0.1
 

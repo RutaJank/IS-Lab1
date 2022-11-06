@@ -1,16 +1,7 @@
 import numpy as np
 import helpers as h
 
-x1 = []
-x2 = []
-t = []
-
-with open('data.txt', 'r') as f:
-    for line in f.readlines():
-        color, roundness, type = line.strip().split(',')
-        x1.append(float(color))
-        x2.append(float(roundness))
-        t.append(int(type))
+x1, x2, t = h.get_data()
 
 x1_apples = []
 x1_pears = []
